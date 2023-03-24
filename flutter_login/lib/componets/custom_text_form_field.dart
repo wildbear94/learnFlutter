@@ -1,22 +1,36 @@
-
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_login/size.dart';
+import 'package:validators/validators.dart';
 
 class CustomTextFormFiled extends StatelessWidget {
+  final String text;
+  final mValide;
+
+  const CustomTextFormFiled({required this.text, required this.mValide});
 
   @override
   Widget build(BuildContext context) {
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text("email"),
+        Text("$text"),
+        SizedBox(height: small_gap),
         TextFormField(
+          validator: mValide,
+          obscureText: text == "Password" ? true : false,
           decoration: InputDecoration(
-            hintText: "Enter Email",
+            hintText: "Enter $text",
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
             ),
             focusedBorder: OutlineInputBorder(
-              borderRadius: BorderRadius.circular(24),
+              borderRadius: BorderRadius.circular(20),
+            ),
+            errorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+            ),
+            focusedErrorBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
             ),
           ),
         ),
