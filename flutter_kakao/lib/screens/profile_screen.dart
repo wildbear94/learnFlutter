@@ -21,36 +21,69 @@ class ProfileScreen extends StatelessWidget {
       ),
       child: Scaffold(
         backgroundColor: Colors.transparent,
-        appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(
-              FontAwesomeIcons.times,
-              size: 30,
-              color: Colors.white,
-            ),
-            onPressed: () {
-              Navigator.pop(context);
-            },
-          ),
-          actions: [
-            RoundIconButton(
-              icon: FontAwesomeIcons.gift,
-            ),
-            SizedBox(width: 15),
-            RoundIconButton(
-              icon: FontAwesomeIcons.cog,
-            ),
-            SizedBox(width: 15),
-          ],
-        ),
+        appBar: _buildAppBar(context),
         body: Column(
           children: [
             Spacer(),
+            _buildMainStory(),
             user.name == me.name ? _buildMyIcons() : _buildFriendIcons(),
           ],
         ),
       ),
     );
+  }
+
+  Column _buildMainStory() {
+    return Column(
+            children: [
+              Container(
+                width: 110,
+                height: 110,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: NetworkImage(user.backgroundImage),
+                      fit: BoxFit.cover),
+                ),
+              ),
+              SizedBox(height: 8),
+              Text(
+                user.name,
+                style: TextStyle(color: Colors.white, fontSize: 20),
+              ),
+              SizedBox(height: 8),
+              Text(
+                user.intro,
+                style: TextStyle(color: Colors.white, fontSize: 15),
+              ),
+              Divider(color: Colors.white),
+            ],
+          );
+  }
+
+  AppBar _buildAppBar(BuildContext context) {
+    return AppBar(
+        leading: IconButton(
+          icon: Icon(
+            FontAwesomeIcons.times,
+            size: 30,
+            color: Colors.white,
+          ),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        actions: [
+          RoundIconButton(
+            icon: FontAwesomeIcons.gift,
+          ),
+          SizedBox(width: 15),
+          RoundIconButton(
+            icon: FontAwesomeIcons.cog,
+          ),
+          SizedBox(width: 15),
+        ],
+      );
   }
 
   Widget _buildMyIcons() {
