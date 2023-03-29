@@ -42,7 +42,7 @@ class Mypage extends StatelessWidget {
           MypageHeader(),
           SizedBox(height: 20),
           MypageCountInfo(),
-          MypageTab(),
+          //MypageTab(),
         ],
       ),
     );
