@@ -21,7 +21,7 @@ class ProfileHeader extends StatelessWidget {
       width: 100,
       height: 100,
       child: CircleAvatar(
-        backgroundImage: AssetImage("assets/avatar.png"),
+        backgroundImage: AssetImage("assets/batman_icon.png"),
       ),
     );
   }
@@ -30,14 +30,14 @@ class ProfileHeader extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "GetinThere",
+          "P30",
           style: TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.w700,
           ),
         ),
-        Text("프로그래머/작가/강사"),
-        Text("대여프로그래밍"),
+        Text("프로그래머"),
+        Text("App 프로그래밍"),
       ],
     );
   }

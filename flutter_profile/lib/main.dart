@@ -53,7 +53,7 @@ class ProfilePage extends StatelessWidget {
   AppBar _blulidProfileAppBar() {
     return AppBar(
       leading: Icon(Icons.arrow_back_ios),
-      title: Text("Profile"),
+      title: Text("프로필"),
       centerTitle: true,
     );
   }
